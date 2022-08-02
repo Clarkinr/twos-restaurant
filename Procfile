@@ -1,1 +1,1 @@
-web: gunicorn twos.wsgi
+web: gunicorn restaurant.wsgi
