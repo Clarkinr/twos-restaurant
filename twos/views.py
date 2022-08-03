@@ -5,19 +5,17 @@ from .models import booking, menu, feedback
 
 class bookingList(generic.ListView):
     model = booking
-    queryset = booking.object.filter(status=1)
-    template_name = 'mybookings.html'
-    paginate_by = 3
+    queryset = booking.objects.filter(Status=1)
+    template_name = 'bookings.html'
 
 
 class menuList(generic.ListView):
     model = menu
-    queryset = menu.objects.filter(status=1).order_by('-created_on')
-    template_name = 'menu.html'
+    template_name = 'index.html'
     paginate_by = 2
+
 
 class feedbackList(generic.ListView):
     model = feedback
-    queryset = feedback.objects.filter(status=1).order_by('-created_on')
-    template_name = 'feedback.html'
+    template_name = 'index.html'
     paginate_by = 4
