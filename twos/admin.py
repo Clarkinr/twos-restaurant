@@ -11,6 +11,11 @@ class bookingAdmin(admin.ModelAdmin):
 class feedbackAdmin(admin.ModelAdmin):
     model = feedback
     list_display = ('first_name', 'comment')
+    actions = ["approve_feedback"]
+
+    def approve_feedback(self, request, queryset):
+        queryset.update(approved=True)
+
 
 @admin.register(menu)
 class menuAdmin(admin.ModelAdmin):
