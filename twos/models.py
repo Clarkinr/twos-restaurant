@@ -32,7 +32,7 @@ class booking(models.Model):
     Status = models.IntegerField(choices=STATUS, default=0)
 
     def __str__(self):
-        return self.name
+        return self.first_name
 
 
 class feedback(models.Model):
@@ -42,4 +42,13 @@ class feedback(models.Model):
     comment = models.TextField(max_length=350)
 
     def __str__(self):
-        return self.name
+        return self.first_name
+
+
+class menu(models.Model):
+    menu_image = CloudinaryField('image', default='placeholder')
+    menu_time = models.TextField()
+    Status = models.IntegerField(choices=STATUS, default=0)
+
+    def __str__(self):
+        return self.menu_time
