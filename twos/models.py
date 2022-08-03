@@ -39,6 +39,7 @@ class feedback(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name = "user_feedback")
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
+    comment = models.TextField(max_length=350)
 
     def __str__(self):
         return self.name
