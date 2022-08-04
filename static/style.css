@@ -26,3 +26,15 @@ body {
     left: 0;
     width: 100%;
 }
+
+
+#tagline {
+    font-family: 'Signika Negative', sans-serif;;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.feedback {
+    color: white;
+    text-align: center;
+}

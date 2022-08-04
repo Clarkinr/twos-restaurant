@@ -1,7 +1,7 @@
-from . import views
 from django.urls import path
+from . import views
 
 
 urlpatterns = [
-    path('',views.menuList.as_view(), name="home")
+    path('', views.FeedbackList.as_view(), name="home")
 ]
