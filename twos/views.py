@@ -21,3 +21,6 @@ class FeedbackList(generic.ListView):
     queryset = feedback.objects.filter(Status=1).order_by("-feedback_made")
     template_name = 'index.html'
     paginate_by = 3
+
+    def get_queryset(self):
+        return feedback.objects.filter(Status=1)
