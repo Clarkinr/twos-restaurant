@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import booking, menu, feedback
+from .forms import FeedbackForm
 
 
 class BookingList(generic.ListView):
@@ -12,7 +13,7 @@ class BookingList(generic.ListView):
 class MenuList(generic.ListView):
     model = menu
     queryset = menu.objects.filter(Status=1).order_by("-menu_made")
-    template_name = 'index.html'
+    template_name = 'menus.html'
     paginate_by = 2
 
 

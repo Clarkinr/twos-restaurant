@@ -64,3 +64,12 @@ class menu(models.Model):
 
     def __str__(self):
         return self.menu_time
+
+
+class SignUp(models.Model):
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    email_address = models.EmailField(null=True, blank=True)
+
+    def __str__(self):
+        return self.first_name
