@@ -1,5 +1,5 @@
 body {
-    background-color: #928e85;
+    background-color: white;
 }
 
 .logo {
@@ -13,17 +13,29 @@ body {
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: grey;
 }
 
 .main-bg {
     background-color: #F9FAFC;
 }
 
+.background-image {
+    background-image: url('../static/images/pexels-prawns.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 450px;
+}
+
 #tagline {
-    font-family: 'Signika Negative', sans-serif;;
-    margin: 0 auto;
+    margin: auto;
+    font-family: 'Dancing Script', cursive;
     text-align: center;
+    color: #F9FAFC;
+    padding-top: 150px;
+    font-size: 3em;
 }
 
 .feedback_shape {
@@ -37,13 +49,27 @@ body {
     font-family: 'Dancing Script', cursive;
 }
 
-.signup-btn {
-    
+.feedback-title {
+    font-family: 'Signika Negative', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.login-btn {
+    background-color: slategrey;
+    border: solid 1px black;
+}
+ 
+.empty-space {
+    height: 90px;
+    width: 100%;
+    background-color: white;
 }
 
 .footer {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    right: 0;
+    height: 60px;
 }

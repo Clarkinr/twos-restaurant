@@ -1,11 +1,19 @@
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic.edit import FormView
 from .models import booking, feedback
+from .forms import BookingForm
+
+
+class BookingView(FormView):
+    template_name = 'bookings.html'
+    form_class = BookingForm
+
 
 
 class BookingList(generic.ListView):
     model = booking
-    queryset = booking.objects.filter(Status=1).order_by("-reservation_made")
+    queryset = booking.objects.filter(Status=1).order_by("-booking_date")
     template_name = 'bookings.html'
 
 

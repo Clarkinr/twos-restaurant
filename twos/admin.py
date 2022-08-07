@@ -4,7 +4,7 @@ from .models import booking, feedback
 @admin.register(booking)
 class bookingAdmin(admin.ModelAdmin):
     model = booking
-    list_display = ('first_name', 'email_address', 'reservation_time', 'reservation_made')
+    list_display = ('first_name', 'email_address', 'reservation_time', 'booking_date')
 
 
 @admin.register(feedback)
