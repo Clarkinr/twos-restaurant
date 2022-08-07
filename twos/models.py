@@ -38,6 +38,10 @@ class booking(models.Model):
         return self.first_name
 
 
+''' Feedback sent in via email or otherwise can be added in the admin panel.
+This model is used with the FeedbackList view in order to display customer
+feedback on the homepage '''
+
 class feedback(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_feedback")
     first_name = models.CharField(max_length=20)
@@ -51,20 +55,6 @@ class feedback(models.Model):
 
     def __str__(self):
         return self.first_name
-
-
-class menu(models.Model):
-    menu_image = CloudinaryField('image', default='placeholder')
-    menu_time = models.TextField()
-    menu_made = models.DateTimeField(auto_now=True)
-    Status = models.IntegerField(choices=STATUS, default=0)
-
-    class Meta:
-        ordering = ["-menu_made"]
-
-    def __str__(self):
-        return self.menu_time
-
 
 class SignUp(models.Model):
     first_name = models.CharField(max_length=20)

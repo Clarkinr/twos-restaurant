@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import booking, feedback, menu
+from .models import booking, feedback
 
 @admin.register(booking)
 class bookingAdmin(admin.ModelAdmin):
@@ -15,9 +15,3 @@ class feedbackAdmin(admin.ModelAdmin):
 
     def approve_feedback(self, request, queryset):
         queryset.update(approved=True)
-
-
-@admin.register(menu)
-class menuAdmin(admin.ModelAdmin):
-    model = menu
-    list_display = ('menu_image', 'menu_time')
