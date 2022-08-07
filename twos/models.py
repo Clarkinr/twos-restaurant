@@ -29,7 +29,7 @@ class booking(models.Model):
     email_address = models.EmailField(null=True, blank=True)
     party_size = models.CharField(max_length=1, choices=NUM_PEOPLE, default='1')
     reservation_time = models.CharField(max_length=10, choices=TIME_SLOTS, default="18:00")
-    booking_date = models.DateTimeField(auto_now=True)
+    booking_date = models.DateField()
     Status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:

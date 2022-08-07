@@ -3,6 +3,10 @@ from .models import booking
 from django import forms
 from django.forms import ModelForm, Form
 
+class CalendarInput(forms.DateInput):
+    input_type = 'date'
+
+
 class BookingForm(ModelForm):
     
     first_name = forms.CharField(
@@ -23,7 +27,9 @@ class BookingForm(ModelForm):
         widget=forms.TextInput(attrs={'placeholder': 'second_name'}),
     )
 
+
     class Meta:
         model = booking
         fields = '__all__'
         exclude= ('user', 'Status',)
+        widgets= {'date': CalendarInput()}
