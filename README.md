@@ -18,7 +18,7 @@ I previously worked in the service industry and am interested in how online book
 
 ### Booking Model
 - Below is an image of the booking model this specifies all the information needed to add a booking to the admin panel and informs what will be used in the booking form.
-![booking-model](/static/images/booking-model.png)
+![booking-model](../static/images/booking-model.png)
 
 ### Feedback Model
 - The feedback Model is for the Admin panel only and is used for the feedback seen on the index.html page
