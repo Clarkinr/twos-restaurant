@@ -17,11 +17,13 @@
     
     </div>
 </div>
+<br>
 
 <div class="container-fluid">
     <div class="row">
 
         <h1 class="feedback-title">See what others are saying about us:</h1>
+        <br>
 
         <!-- Shows reviews -->
         <div class="col-12 mt-3">
@@ -31,7 +33,7 @@
                         <div class="card-mb-4">
                             <div class="card-body feedback">
                                 <p> {{ item.comment }}</p>
-                                <h4>{{ item.first_name }}</h4>
+                                <h3>{{ item.first_name }}</h3>
                             </div>
                         </div>
                     </div>
@@ -40,5 +42,6 @@
         </div>
     </div>
 </div>
+
 
 {% endblock %}

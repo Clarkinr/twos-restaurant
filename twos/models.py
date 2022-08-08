@@ -51,6 +51,7 @@ class feedback(models.Model):
     feedback_made = models.DateTimeField(auto_now=True)
     Status = models.IntegerField(choices=STATUS, default=0)
 
+    ''' Determines the order feedback shows up on page from newest to oldest '''
     class Meta:
         ordering = ["-feedback_made"]
 

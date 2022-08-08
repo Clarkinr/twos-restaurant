@@ -1,5 +1,6 @@
 body {
     background-color: white;
+    font-family: 'Signika Negative', sans-serif;
 }
 
 .logo {
@@ -41,12 +42,14 @@ body {
 .feedback_shape {
     border: 2px solid grey;
     border-radius: 10px;
+    background-color: beige;
 }
 
 .feedback {
     color: black;
     text-align: center;
     font-family: 'Dancing Script', cursive;
+    font-size: 1.5em;
 }
 
 .feedback-title {
@@ -59,7 +62,8 @@ body {
     background-color: slategrey;
     border: solid 1px black;
 }
- 
+
+
 .empty-space {
     height: 90px;
     width: 100%;
