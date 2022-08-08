@@ -14,22 +14,22 @@ I previously worked in the service industry and am interested in how online book
 ## Models
 ### Choices
 - firstly I needed to create choices for the time and number of people attending which can be seen as a drop down in the form. 
-![choices](/media/choices-model.png)
+![choices](/static/images/choices-model.png)
 
 ### Booking Model
 - Below is an image of the booking model this specifies all the information needed to add a booking to the admin panel and informs what will be used in the booking form.
-![booking-model](/media/booking-model.png)
+![booking-model](/static/images/booking-model.png)
 
 ### Feedback Model
 - The feedback Model is for the Admin panel only and is used for the feedback seen on the index.html page
-![feedback-model](/media/feedback-model.png)
+![feedback-model](/static/images/feedback-model.png)
 
 ##Views
 ### Class based views
 - Two custom class based views were created one for the booking form on the bookings page and one for the feedback shown on the index.html page
 - These views were added to templates seen in the image below and extended a base.html file also seen below.
 ![views](/media/views.png)
-![base-html](/media/base-html.png)
+![base-html](/static/images/base-html.png)
 
 
 ## Features left to implement
@@ -43,7 +43,7 @@ I previously worked in the service industry and am interested in how online book
 ## Code Validation 
 - Code was checked for convnentional formatting using the pycodestyle function built into gitpod (this was formerly pep8).
 - All CSS was checked using the WS3 validator program (output can be seen below).
-![WS3-validation](/media/W3c-css.png)
+![WS3-validation](/static/images/W3c-css.png)
 
 
 ## Credits
