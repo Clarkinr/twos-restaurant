@@ -22,7 +22,7 @@ body {
 }
 
 .background-image {
-    background-image: url('../static/images/pexels-prawns.jpg');
+    background-image: url('/static/images/pexels-prawns.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

@@ -10,7 +10,7 @@ from .forms import BookingForm
 class BookingView(FormView):
     template_name = 'bookings.html'
     form_class = BookingForm
-    success_url = 'index.html'
+    success_url = 'bookingrequested.html'
 
     def post(self, request):
         form = BookingForm(data=request.POST)
@@ -19,16 +19,7 @@ class BookingView(FormView):
             booking.user = request.user
             booking.save()
 
-        return render(request, 'index.html')
-
-
-'''view for the bookings list'''
-
-
-class BookingList(generic.ListView):
-    model = booking
-    queryset = booking.objects.filter(Status=1).order_by("-booking_date")
-    template_name = 'bookings.html'
+        return render(request, 'bookingrequested.html')
 
 
 '''view to show the approved feed back listed on the index page'''
