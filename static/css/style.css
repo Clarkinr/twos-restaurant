@@ -22,7 +22,7 @@ body {
 }
 
 .background-image {
-    background-image: url('/static/images/pexels-prawns.jpg');
+    background-image: url('https://res.cloudinary.com/clarkinr/image/upload/v1659984342/pexels-prawns_tfpjkg.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
