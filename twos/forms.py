@@ -34,4 +34,4 @@ class BookingForm(ModelForm):
     class Meta:
         model = booking
         fields = '__all__'
-        exclude= ('user', 'Status',)
+        exclude = ('user', 'Status',)
