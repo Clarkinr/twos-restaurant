@@ -25,10 +25,8 @@ class BookingForm(ModelForm):
     )
 
     booking_date = forms.DateField(
-        label='date in format YYYY-MM-DD',
-        required=True,
-        widget=forms.DateInput(attrs={'placeholder': '2022-08-10'})
-    )
+        initial = datetime.date.today, 
+        widget = forms.widgets.DateInput(attrs={'type': 'date'}))
     
 
     class Meta:

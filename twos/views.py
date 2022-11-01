@@ -19,7 +19,7 @@ class BookingView(FormView):
             booking.user = request.user
             booking.save()
 
-        return render(request, 'bookingrequested.html')
+        return render(request, 'bookingrequested.html')    
 
 
 '''view to show the approved feed back listed on the index page'''
@@ -33,3 +33,4 @@ class FeedbackList(generic.ListView):
 
     def get_queryset(self):
         return feedback.objects.filter(Status=1)
+
