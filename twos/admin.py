@@ -1,15 +1,19 @@
 from django.contrib import admin
-from .models import booking, feedback
-
-@admin.register(booking)
-class bookingAdmin(admin.ModelAdmin):
-    model = booking
-    list_display = ('first_name', 'email_address', 'reservation_time', 'booking_date')
+from .models import Booking, Feedback
 
 
-@admin.register(feedback)
-class feedbackAdmin(admin.ModelAdmin):
-    model = feedback
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    model = Booking
+    list_display = (
+        'first_name', 'email_address',
+        'reservation_time', 'booking_date'
+        )
+
+
+@admin.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
+    model = Feedback
     list_display = ('first_name', 'comment')
     actions = ["approve_feedback"]
 
