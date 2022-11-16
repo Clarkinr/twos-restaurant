@@ -29,7 +29,6 @@ class BookingForm(ModelForm):
         initial=datetime.date.today,
         widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
-
     class Meta:
         model = Booking
         fields = '__all__'
