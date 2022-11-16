@@ -7,7 +7,7 @@ class BookingAdmin(admin.ModelAdmin):
     model = Booking
     list_display = (
         'first_name', 'email_address',
-        'reservation_time', 'booking_date'
+        'reservation_time', 'booking_date',
         )
 
 

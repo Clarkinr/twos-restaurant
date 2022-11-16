@@ -44,9 +44,8 @@ class Booking(models.Model):
     class Meta:
         ordering = ["-booking_date"]
 
-    
     def __str__(self):
-        return self.User
+        return self.first_name
 
 
 class Feedback(models.Model):

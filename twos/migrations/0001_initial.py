@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
             name='booking',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=20)),
+                ('first_name', models.TextField(max_length=20)),
                 ('last_name', models.CharField(max_length=20)),
                 ('email_address', models.EmailField(blank=True, max_length=254, null=True)),
                 ('party_size', models.CharField(choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'), ('7', '7'), ('8', '8')], default='1', max_length=1)),

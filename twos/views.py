@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
-from django.views.generic.edit import FormView, BaseUpdateView
+from django.views.generic.edit import FormView
 from .models import Booking, Feedback
 from .forms import BookingForm
 
@@ -22,22 +22,19 @@ class CreateBookingView(FormView):
         return render(request, 'bookingrequested.html')
 
 
-class UpdateBookings(generic.UpdateView):
+class ViewBookings(generic.DetailView):
     
-    model = Booking
-    template_name = 'bookingupdate.html'
-    form_class = BookingForm
-    success_url = 'bookingrequested.html'
-    
+    template_name = 'viewbookings.html'
 
-    def post(self, request):
-        form = Booking.object.get(data=request.POST)
-        if form.is_valid():
-            booking = form.save(commit=False)
-            booking.user = request.user.id
-            booking.save()
-
-        return render(request, 'bookingrequested.html')
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            bookings = Booking.objects.filter(user=request.user)
+   
+            return render(request, 'viewbookings.html', {
+                    'bookings': bookings
+                })
+        else:
+            return redirect('account_login')
 
 
 '''view to show the approved feed back listed on the index page'''
