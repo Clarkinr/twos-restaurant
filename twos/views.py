@@ -50,6 +50,12 @@ def booking_edit_view(request, booking_id):
     return render(request, 'booking_edit.html', {'form': form})
 
 
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.delete()
+    return render(request, 'viewbookings.html')
+
+
 class FeedbackList(generic.ListView):
     '''view to show the approved feed back listed on the index page'''
     model = Feedback
