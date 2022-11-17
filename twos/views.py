@@ -4,10 +4,9 @@ from django.views.generic.edit import FormView
 from .models import Booking, Feedback
 from .forms import BookingForm
 
-'''view for the bookings Form'''
-
 
 class CreateBookingView(FormView):
+    '''view for the bookings Form'''
     template_name = 'bookings.html'
     form_class = BookingForm
     success_url = 'bookingrequested.html'
@@ -23,13 +22,13 @@ class CreateBookingView(FormView):
 
 
 class ViewBookings(generic.DetailView):
-    
+
     template_name = 'viewbookings.html'
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             bookings = Booking.objects.filter(user=request.user)
-   
+
             return render(request, 'viewbookings.html', {
                     'bookings': bookings
                 })
@@ -37,10 +36,22 @@ class ViewBookings(generic.DetailView):
             return redirect('account_login')
 
 
-'''view to show the approved feed back listed on the index page'''
+def booking_edit_view(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+
+    if request.method == 'POST':
+        form = BookingForm(data=request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
+
+    form = BookingForm(instance=booking)
+
+    return render(request, 'booking_edit.html', {'form': form})
 
 
 class FeedbackList(generic.ListView):
+    '''view to show the approved feed back listed on the index page'''
     model = Feedback
     queryset = Feedback.objects.filter(Status=1).order_by("-feedback_made")
     template_name = 'index.html'

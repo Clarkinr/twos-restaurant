@@ -10,10 +10,10 @@
             <div class="col-md-8 mt-3 offset-md-2">
                 <h5 class='card-title text-uppercase text-center'>{{ booking.name }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ booking.reservation_time }}on{{ booking.booking_date }}</h6>
-                <p>No. of People: {{ booking.party_size }}</p>
+                <p>Party size: {{ booking.party_size }}</p>
             </div>
         </div>
-            <a href="/edit_bookings/{{booking.id}}" class="btn btn-success">Edit</a>
+            <a href="/booking_edit/{{booking.id}}" class="btn btn-success">Edit</a>
         {% endfor %}
     </div>
 

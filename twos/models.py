@@ -40,6 +40,7 @@ class Booking(models.Model):
         )
     booking_date = models.DateField()
     Status = models.IntegerField(choices=STATUS, default=0)
+    objects = models.Manager()
 
     class Meta:
         ordering = ["-booking_date"]
@@ -61,6 +62,7 @@ class Feedback(models.Model):
     comment = models.TextField(max_length=350)
     feedback_made = models.DateTimeField(auto_now=True)
     Status = models.IntegerField(choices=STATUS, default=0)
+    objects = models.Manager()
 
     ''' Determines the order feedback
     shows up on page from newest to oldest '''
