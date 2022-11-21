@@ -1,7 +1,7 @@
 import datetime
 from django import forms
 from django.forms import ModelForm
-from .models import Booking
+from .models import Booking, Feedback
 
 
 class BookingForm(ModelForm):
@@ -32,3 +32,29 @@ class BookingForm(ModelForm):
         model = Booking
         fields = '__all__'
         exclude = ('user', 'Status',)
+
+
+class FeedbackForm(ModelForm):
+
+    first_name = forms.CharField(
+        label='First Name',
+        required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'First Name'}),
+    )
+
+    last_name = forms.CharField(
+        label='Last Name',
+        required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Second Name'}),
+    )
+
+    comment = forms.CharField(
+        label='Feedback',
+        required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'My experience was ...'})
+        )
+
+    class Meta:
+        model = Feedback
+        fields = '__all__'
+        exclude = ('user', 'Status', 'feedback_made', )

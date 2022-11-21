@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.views.generic.edit import FormView
 from .models import Booking, Feedback
-from .forms import BookingForm
+from .forms import BookingForm, FeedbackForm
 
 
 class CreateBookingView(FormView):
@@ -54,6 +54,22 @@ def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     booking.delete()
     return render(request, 'viewbookings.html')
+
+
+class CreateFeedbackView(FormView):
+    '''view for the feedback Form'''
+    template_name = 'feedback.html'
+    form_class = FeedbackForm
+    success_url = 'feedbacksubmitted.html'
+
+    def post(self, request):
+        form = FeedbackForm(data=request.POST)
+        if form.is_valid():
+            feedback = form.save(commit=False)
+            feedback.user = request.user
+            feedback.save()
+
+        return render(request, 'feedbacksubmitted.html')
 
 
 class FeedbackList(generic.ListView):

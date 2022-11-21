@@ -5,21 +5,21 @@
 <div class="container-fluid">
     <div class="row">
         {% if user.is_authenticated %}
-        <!-- Shows booking form if user is authenticated-->
+        <!-- Shows feedback form if user is authenticated-->
         
         <div class="row">
             <div class="col-md-8 mt-3 offset-md-2">
-                <h1>Make a new booking</h1>
+                <h1>Tell us about your last visit</h1>
                 <form method="POST">
                     {% csrf_token %}
                     {{form.as_p}}
 
-                    <button id="submit-button" class="btn btn-success">Book Table</button>
+                    <button id="submit-button" class="btn btn-success">Add my feedback</button>
                 </form>
             </div>
         </div>
         {% else %}
-        <!--requests user log in in order to make a booking-->
+        <!--requests user log in in order to add feedback-->
         <p>You must be signed in to make a booking.<a href="{% url 'account_login' %}">sign in</a></p>
         
         {% endif %}
