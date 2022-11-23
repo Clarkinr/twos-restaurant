@@ -1,3 +1,6 @@
+"""
+Forms to be used with models
+"""
 import datetime
 from django import forms
 from django.forms import ModelForm
@@ -5,6 +8,10 @@ from .models import Booking, Feedback
 
 
 class BookingForm(ModelForm):
+    """
+    provides information shown to user when creating a booking
+    and generates the form
+    """
 
     first_name = forms.CharField(
         label='First Name',
@@ -29,12 +36,20 @@ class BookingForm(ModelForm):
         widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
     class Meta:
+        """
+        provides the BookingForm with the model to use and
+        which fields to include/exclude
+        """
         model = Booking
         fields = '__all__'
         exclude = ('user', 'Status',)
 
 
 class FeedbackForm(ModelForm):
+    """
+    provides information shown to user when creating feedback
+    and generates the form
+    """
 
     first_name = forms.CharField(
         label='First Name',
@@ -55,6 +70,10 @@ class FeedbackForm(ModelForm):
         )
 
     class Meta:
+        """
+        provides the FeedbackForm with the model to use
+        and which fields to include/exclude
+        """
         model = Feedback
         fields = '__all__'
         exclude = ('user', 'Status', 'feedback_made', )

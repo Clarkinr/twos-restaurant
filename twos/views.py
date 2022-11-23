@@ -1,3 +1,6 @@
+"""
+views to be generated for users
+"""
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.views.generic.edit import FormView
@@ -6,7 +9,7 @@ from .forms import BookingForm, FeedbackForm
 
 
 class CreateBookingView(FormView):
-    '''view for the bookings Form'''
+    '''view which allows users to create a new booking'''
     template_name = 'bookings.html'
     form_class = BookingForm
     success_url = 'booking_requested.html'
@@ -22,6 +25,7 @@ class CreateBookingView(FormView):
 
 
 class ViewBookings(generic.DetailView):
+    """View which allows users see previously created bookings"""
 
     template_name = 'view_bookings.html'
 
@@ -37,6 +41,9 @@ class ViewBookings(generic.DetailView):
 
 
 def booking_edit_view(request, booking_id):
+    """
+    View which allows users to edi bookings previously created
+    """
     booking = get_object_or_404(Booking, id=booking_id)
 
     if request.method == 'POST':
@@ -51,6 +58,9 @@ def booking_edit_view(request, booking_id):
 
 
 def delete_booking(request, booking_id):
+    """
+    View generated after user chooses to delete a booking
+    """
     booking = get_object_or_404(Booking, id=booking_id)
     booking.delete()
     return render(request, 'view_bookings.html')
@@ -73,6 +83,7 @@ class CreateFeedbackView(FormView):
 
 
 class ViewFeedback(generic.DetailView):
+    """Allows users to view Feedback previously made """
 
     template_name = 'view_feedback.html'
 
@@ -88,6 +99,7 @@ class ViewFeedback(generic.DetailView):
 
 
 def feedback_edit_view(request, feedback_id):
+    """View which allows users see feedback they have made"""
     feedback = get_object_or_404(Feedback, id=feedback_id)
 
     if request.method == 'POST':
@@ -102,6 +114,10 @@ def feedback_edit_view(request, feedback_id):
 
 
 def delete_feedback(request, feedback_id):
+    """
+    View which allows users to delete feedback they have made
+    and returns them to the view feedback page
+    """
     feedback = get_object_or_404(Feedback, id=feedback_id)
     feedback.delete()
     return render(request, 'view_feedback.html')

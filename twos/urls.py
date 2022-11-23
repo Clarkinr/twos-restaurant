@@ -1,3 +1,6 @@
+"""
+determines url patterns for the relevant views
+"""
 from django.urls import path
 from . import views
 

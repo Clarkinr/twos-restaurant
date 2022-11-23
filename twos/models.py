@@ -1,3 +1,6 @@
+"""
+models to be used
+"""
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -24,7 +27,10 @@ NUM_PEOPLE = (
 
 
 class Booking(models.Model):
-    '''Model for the booking information to be used with the model form'''
+    '''
+    Model for the information to be stored about each booking
+    and so users can create and update bookings
+    '''
 
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_book"
@@ -43,6 +49,9 @@ class Booking(models.Model):
     objects = models.Manager()
 
     class Meta:
+        """
+        orders all created bookings by booking date
+        """
         ordering = ["-booking_date"]
 
     def __str__(self):
@@ -50,9 +59,11 @@ class Booking(models.Model):
 
 
 class Feedback(models.Model):
-    ''' Feedback sent in via email or otherwise can be added in the admin
-    panel.This model is used with the FeedbackList view in order to
-    display customer feedback on the homepage '''
+    '''
+    Model created so that users can provide feedback
+    This model is used with the FeedbackList view in order to
+    display customer feedback on the homepage
+    '''
 
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_feedback"
@@ -64,7 +75,9 @@ class Feedback(models.Model):
     Status = models.IntegerField(choices=STATUS, default=0)
     objects = models.Manager()
 
-    ''' Determines the order feedback
-    shows up on page from newest to oldest '''
     class Meta:
+        ''' Determines the order feedback
+        shows up on page from newest to oldest
+        '''
+
         ordering = ["-feedback_made"]
