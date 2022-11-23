@@ -9,7 +9,7 @@ class CreateBookingView(FormView):
     '''view for the bookings Form'''
     template_name = 'bookings.html'
     form_class = BookingForm
-    success_url = 'bookingrequested.html'
+    success_url = 'booking_requested.html'
 
     def post(self, request):
         form = BookingForm(data=request.POST)
@@ -18,18 +18,18 @@ class CreateBookingView(FormView):
             booking.user = request.user
             booking.save()
 
-        return render(request, 'bookingrequested.html')
+        return render(request, 'booking_requested.html')
 
 
 class ViewBookings(generic.DetailView):
 
-    template_name = 'viewbookings.html'
+    template_name = 'view_bookings.html'
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             bookings = Booking.objects.filter(user=request.user)
 
-            return render(request, 'viewbookings.html', {
+            return render(request, 'view_bookings.html', {
                     'bookings': bookings
                 })
         else:
@@ -53,14 +53,14 @@ def booking_edit_view(request, booking_id):
 def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     booking.delete()
-    return render(request, 'viewbookings.html')
+    return render(request, 'view_bookings.html')
 
 
 class CreateFeedbackView(FormView):
     '''view for the feedback Form'''
     template_name = 'feedback.html'
     form_class = FeedbackForm
-    success_url = 'feedbacksubmitted.html'
+    success_url = 'feedback_submitted.html'
 
     def post(self, request):
         form = FeedbackForm(data=request.POST)
@@ -69,7 +69,42 @@ class CreateFeedbackView(FormView):
             feedback.user = request.user
             feedback.save()
 
-        return render(request, 'feedbacksubmitted.html')
+        return render(request, 'feedback_submitted.html')
+
+
+class ViewFeedback(generic.DetailView):
+
+    template_name = 'view_feedback.html'
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            feedbacks = Feedback.objects.filter(user=request.user)
+
+            return render(request, 'view_feedback.html', {
+                    'feedbacks': feedbacks
+                })
+        else:
+            return redirect('account_login')
+
+
+def feedback_edit_view(request, feedback_id):
+    feedback = get_object_or_404(Feedback, id=feedback_id)
+
+    if request.method == 'POST':
+        form = FeedbackForm(data=request.POST, instance=feedback)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
+
+    form = FeedbackForm(instance=feedback)
+
+    return render(request, 'feedback_edit.html', {'form': form})
+
+
+def delete_feedback(request, feedback_id):
+    feedback = get_object_or_404(Feedback, id=feedback_id)
+    feedback.delete()
+    return render(request, 'view_feedback.html')
 
 
 class FeedbackList(generic.ListView):

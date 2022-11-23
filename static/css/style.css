@@ -1,5 +1,4 @@
 body {
-    background-color: white;
     font-family: 'Signika Negative', sans-serif;
 }
 
@@ -8,6 +7,7 @@ body {
     font-size: 3rem;
     color: 	#181716;
 }
+
 
 .light-bg {
     background-color: slateblue;
@@ -63,6 +63,13 @@ body {
     border: solid 1px black;
 }
 
+.booking-form {
+    padding: 30px;
+    background-color: slateblue;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
 
 .empty-space {
     height: 90px;

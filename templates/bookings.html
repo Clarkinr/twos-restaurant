@@ -7,17 +7,17 @@
         {% if user.is_authenticated %}
         <!-- Shows booking form if user is authenticated-->
         
-        <div class="row">
-            <div class="col-md-8 mt-3 offset-md-2">
-                <h1>Make a new booking</h1>
-                <form method="POST">
-                    {% csrf_token %}
-                    {{form.as_p}}
+            <div class="col-md-4 mt-3 offset-md-4">
+                <div class="booking-form">
+                    <h1>Make a new booking</h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{form.as_p}}
 
-                    <button id="submit-button" class="btn btn-success">Book Table</button>
-                </form>
+                        <button id="submit-button" class="btn btn-success">Book Table</button>
+                    </form>
             </div>
-        </div>
+            </div>
         {% else %}
         <!--requests user log in in order to make a booking-->
         <p>You must be signed in to make a booking.<a href="{% url 'account_login' %}">sign in</a></p>

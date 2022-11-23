@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <h3 class="text-center">My feedback</h3>
+        {% for feedback in feedbacks %}
+        <!-- Shows created feedback if user is authenticated-->
+            <div class="col-md-4 feedback_shape">
+                <div class=" mt-4 feedback">
+                    <h5 class='card-title'>{{ feedback.first_name }}</h5>
+                    <p>Comment: {{ feedback.comment }}</p>
+                    <a href="/feedback_edit/{{feedback.id}}" class="btn btn-success">Edit</a>
+                    <a href="/delete_feedback/{{feedback.id}}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

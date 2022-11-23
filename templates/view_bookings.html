@@ -7,8 +7,8 @@
         <h3 class="text-center">My bookings</h3>
         {% for booking in bookings %}
         <!-- Shows created bookings if user is authenticated-->
-            <div class="col-md-4 text-center">
-                <div class=" mt-4 main-bg">
+            <div class="col-md-4">
+                <div class=" mt-4 booking-form">
                     <h5 class='card-title'>{{ booking.first_name }}</h5>
                     <h6 class="card-subtitle mb-2">{{ booking.reservation_time }} on {{ booking.booking_date }}</h6>
                     <p>Party size: {{ booking.party_size }}</p>
