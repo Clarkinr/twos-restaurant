@@ -66,7 +66,7 @@ class FeedbackForm(ModelForm):
     comment = forms.CharField(
         label='Feedback',
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'My experience was ...'})
+        widget=forms.Textarea(attrs={'placeholder': 'My experience was ...'})
         )
 
     class Meta:
