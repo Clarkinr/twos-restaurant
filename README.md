@@ -16,7 +16,7 @@ A booking system can be used for a multitude of businesses and seemed like a use
 - gitpod
 - heroku
 - cloudinary
-- Postgres
+- Postgres - later changed to elephant
 - Elephant
 
 ## Models
@@ -86,12 +86,30 @@ these appear to be common in django projects and I am unsure how to remove them.
 ## Testing 
 - The django tests.py file was used to create 5 view tests for booking, index, feedback, create feedback and update feedback
 views
+- For testing purposes the database was switched to sqlite3 in the settings.py file.
 - The feedback view and booking view again are similar in nature so only one set was tested. All tests were checked for a 
 response status code of 200 or success url. 
 - The code for the tests can be seen below. 
 ![testcase-setup](/static/images/testcase.PNG)
 ![tests-booking-and-login](/static/images/test-booking-and-login.PNG)
 ![tests-feedback](/static/images/test-feedback.PNG)
+
+## Deployment
+- The following steps were taken to deploy the app to Heroku
+1. Open the Heroku dashboard and select new and then create new app using the name twos-restaurant.
+1. Open the Settings tab and add the Heroku/Python buildpack
+1. Add the Elephant Database url to the Config Vars in the settings tab. 
+1. Add the Database url to the my env.py file in gitpod
+1. Add the Cloudinary_url to both env.py and to the Config Vars
+1. Create a seceret key and add to both Config Vars and env.py
+1. Update the settings.py file to reference the env.py file so it uses the correct Secret_Key and database.
+1. Update the settings.py file to correctly reference cloudinary storage as the default media storage.
+1. Add the TEMPLATES_DIR to settings.py file
+1. in settings.py file change DEBUG value to True and update the ALLOWED_HOSTS with the heroku url and localhost.
+1. Create the procfile. 
+1. Link the repository from the heroku app dashboard
+1. Change the settings.py file DEBUG Value to TREUE
+1. Deploy the app using the Deply Branch and wait for heroku to finish the build.
 
 ## Credits
 - The nav bar and footer along with the bootstrap links in the head section of the base.html file were adapted from the Code 
