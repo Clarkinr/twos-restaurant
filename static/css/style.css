@@ -95,3 +95,17 @@ body {
     right: 0;
     height: 60px;
 }
+
+@media only screen and (max-width: 1400px) {
+    #tagline {
+        margin: auto;
+        font-family: 'Dancing Script', cursive;
+        text-align: center;
+        color: #F9FAFC;
+        margin-top: 150px;
+        padding: 20px;
+        font-size: 2em;
+        background-color: rgb(20, 18, 17, 0.8);
+        border: dotted white;
+    }
+}
