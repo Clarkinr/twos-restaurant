@@ -19,25 +19,60 @@ A booking system can be used for a multitude of businesses and seemed like a use
 - Postgres - later changed to elephant
 - Elephant
 
+## Wireframes 
+
+- Below are the wireframes created to base the site design on. The aim was to keep a lot of white space and use individual pages for CRUD functionality. 
+
+
+![home-wireframe](/static/images/wireframes/homepage.PNG)
+![sign-up-wireframe](/static/images/wireframes/sign-up.PNG)
+![sign-in-wireframe](/static/images/wireframes/sign-in.PNG)
+![sign-out-wireframe](/static/images/wireframes/sign-out.PNG)
+![new-booking-wireframe](/static/images/wireframes/Booking-page.PNG)
+![current-booking-wireframe](/static/images/wireframes/current-bookings.PNG)
+
+
+## User Stories
+- Below are samples of the created user stories, a full list of completed user stories can be found in the github projects tab for this repository
+
+
+![sample-user-stories](/static/images/sample-user-stories.PNG)
+
 ## Models
+### CRUD functionality
+- The relationship entity diagrams and crud tables for the models used can be seen in the image below. 
+
+![CRUD-relationship-diagram](/static/images/models-crud-tables.PNG)
+
 ### Choices
-- firstly I needed to create choices for the time and number of people attending which can be seen as a drop down in the 
-BookingFrom 
+- I needed to create choices for the time and number of people attending which can be seen as a drop down in the 
+BookingFrom
+
+
 ![choices](/static/images/choices-model.PNG)
 
 ### Booking Model
+
 - Below is an image of the booking model this model is used to create the booking form which allows users or administrators to 
 create a new booking to be approved by the administrators.
+
+
+
 ![bookingmodel](/static/images/booking-model.PNG)
 
 ### Feedback Model
 - Below is the Feedback model, the feedback model is used to inform the booking form of which attrubutes need to be added to 
 provide feedback to the restaurant. Once feedback is provided the administrator can choose to approve this feedback so that it 
 appears on the index page of the site.
+
+
+
 ![feedback-model](/static/images/feedback-model.PNG)
 
-##Views
+## Views
 ### Class based views
+
+
 - There are two class based views for each model (Booking and feedback). Both views are similar in structure so I will discuss 
 only the ViewFeedback and CreateFeedbackView classes below(There is an image of both feedback and booking class based views for 
 comparison)
@@ -47,7 +82,8 @@ for authenticated users.
 feedback. 
 - The ViewFeedback class is used with the view_feedback.html file in order to allow users view their own previously submitted 
 feedback (an admin can view all feed back submitted by any user)
-- 
+
+
 ![feedback-class-views](/static/images/feedback-class-views.PNG)
 ![booking-class-views](/static/images/booking-class-views.PNG)
 
@@ -63,6 +99,9 @@ index page once it has been approved by an admin.
 similar and allow users to edit and delete bookings and feedback created previously, whether it has been approved or not. 
 - These views retrieve the information previously added by the user via either the booking or feedback id and allow the user to 
 update or delete the form they had previously provied.
+
+
+
 ![feedback-function-views](/static/images/feedback-function-views.PNG)
 ![booking-function-views](/static/images/booking-function-views.PNG)
 
@@ -71,14 +110,16 @@ update or delete the form they had previously provied.
 - Limiting the number of seats available per day, currently a booking must be approved by an admin so can be managed that way. 
 - Send automatic confirmation emails
 - Allow admins post new menus from the admin panel (currently the menu is added as an image and has to be updated directly in the database )
-## Known bugs 
-- 
+
 
 ## Code Validation 
 - Code was checked for convnentional formatting using the pycodestyle function built into gitpod (this was formerly pep8).
 - All pycodestyle errors were removed, there are two warnings in the views.py file shown below however, from some google searches
 these appear to be common in django projects and I am unsure how to remove them. They do not affect the functionality of the code.
 - All CSS was checked using the WS3 validator program (output can be seen below).
+
+
+
 ![WS3-validation](/static/images/W3c-css.PNG)
 ![code-warnings](/static/images/warning.PNG)
 
@@ -90,6 +131,9 @@ views
 - The feedback view and booking view again are similar in nature so only one set was tested. All tests were checked for a 
 response status code of 200 or success url. 
 - The code for the tests can be seen below. 
+
+
+
 ![testcase-setup](/static/images/testcase.PNG)
 ![tests-booking-and-login](/static/images/test-booking-and-login.PNG)
 ![tests-feedback](/static/images/test-feedback.PNG)
