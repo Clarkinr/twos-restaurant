@@ -63,7 +63,7 @@ def delete_booking(request, booking_id):
     """
     booking = get_object_or_404(Booking, id=booking_id)
     booking.delete()
-    return render(request, 'view_bookings.html')
+    return render(request, 'delete_booking.html')
 
 
 class CreateFeedbackView(FormView):
@@ -120,7 +120,7 @@ def delete_feedback(request, feedback_id):
     """
     feedback = get_object_or_404(Feedback, id=feedback_id)
     feedback.delete()
-    return render(request, 'view_feedback.html')
+    return render(request, 'delete_feedback.html')
 
 
 class FeedbackList(generic.ListView):
