@@ -124,6 +124,11 @@ these appear to be common in django projects and I am unsure how to remove them.
 ![code-warnings](/static/images/warning.PNG)
 
 
+## UI Testing 
+- Once the site had been deployed its functionality was tested across multiple browsers
+- Upon testing it was discovered when a registration was completed a 500 error was being displayed, this was solved by setting email verification to none in the settings.py file. 
+- It was also noted that after feedback/bookings were deleted the view page that the user was being shown was blank, this was corrected by adding a confirmation page for each (delete_feedback.html and delete_booking.html) and updating the views.py file 
+
 ## Testing 
 - The django tests.py file was used to create 5 view tests for booking, index, feedback, create feedback and update feedback
 views
